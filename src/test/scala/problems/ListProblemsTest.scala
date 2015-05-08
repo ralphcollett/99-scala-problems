@@ -24,4 +24,10 @@ class ListProblemsTest extends FunSuite with Matchers {
   test("P05:  Reverse a list") {
     reverse(List(1, 1, 2, 3, 5, 8)) should be(List(8, 5, 3, 2, 1, 1))
   }
+
+  test("P06:   out whether a list is a palindrome") {
+    isPalindrome(List(1, 2, 3, 2, 1)) should be(true)
+    isPalindrome(List(1, 2, 2, 1)) should be(true)
+    isPalindrome(List(1, 2, 3, 2, 4)) should be(false)
+  }
 }

@@ -29,4 +29,7 @@ object ListProblems {
 
   // P05
   def reverse[A](input: List[A]): List[A] = input.foldLeft(List[A]())((acc, element) => element :: acc)
+
+  // P06
+  def isPalindrome[A](input: List[A]): Boolean = input == reverse(input)
 }
