@@ -39,4 +39,12 @@ object ListProblems {
     case (head: List[Any]) :: tail => flatten(head) ::: flatten(tail)
     case head :: tail => head :: flatten(tail)
   }
+
+  // P08
+  def compress[A](input: List[A]): List[A] = input match {
+    case Nil => Nil
+    case _ :: Nil => input
+    case head :: tail if head == tail.head => compress(tail)
+    case head :: tail => head :: compress(tail)
+  }
 }
