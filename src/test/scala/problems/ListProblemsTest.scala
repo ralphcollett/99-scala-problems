@@ -20,4 +20,8 @@ class ListProblemsTest extends FunSuite with Matchers {
   test("P04:  Find the number of elements of a list") {
     ListProblems.length(List(1, 1, 2, 3, 5, 8)) should be(6)
   }
+
+  test("P05:  Reverse a list") {
+    reverse(List(1, 1, 2, 3, 5, 8)) should be(List(8, 5, 3, 2, 1, 1))
+  }
 }
