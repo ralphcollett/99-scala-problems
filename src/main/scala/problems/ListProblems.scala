@@ -47,4 +47,9 @@ object ListProblems {
     case head :: tail if head == tail.head => compress(tail)
     case head :: tail => head :: compress(tail)
   }
+
+  // P09
+  def pack[A](input: List[A]): List[List[A]] = {
+    ???
+  }
 }
