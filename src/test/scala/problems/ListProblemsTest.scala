@@ -17,17 +17,21 @@ class ListProblemsTest extends FunSuite with Matchers {
     nth(2, List(1, 1, 2, 3, 5, 8)) should be(2)
   }
 
-  test("P04:  Find the number of elements of a list") {
+  test("P04: Find the number of elements of a list") {
     ListProblems.length(List(1, 1, 2, 3, 5, 8)) should be(6)
   }
 
-  test("P05:  Reverse a list") {
+  test("P05: Reverse a list") {
     reverse(List(1, 1, 2, 3, 5, 8)) should be(List(8, 5, 3, 2, 1, 1))
   }
 
-  test("P06:   out whether a list is a palindrome") {
+  test("P06: Find out whether a list is a palindrome") {
     isPalindrome(List(1, 2, 3, 2, 1)) should be(true)
     isPalindrome(List(1, 2, 2, 1)) should be(true)
     isPalindrome(List(1, 2, 3, 2, 4)) should be(false)
+  }
+
+  test("P07: Flatten a nested list structure") {
+    flatten(List(List(1, 1), 2, List(3, List(5, 8)))) should be(List(1, 1, 2, 3, 5, 8))
   }
 }

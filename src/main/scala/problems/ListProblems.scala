@@ -25,11 +25,20 @@ object ListProblems {
   }
 
   // P04
-  def length[A](input: List[A]): Int = input.foldLeft(0)((count, _) => count + 1)
+  def length[A](input: List[A]) = input.foldLeft(0)((count, _) => count + 1)
 
   // P05
-  def reverse[A](input: List[A]): List[A] = input.foldLeft(List[A]())((acc, element) => element :: acc)
+  def reverse[A](input: List[A]) = input.foldLeft(List[A]())((acc, element) => element :: acc)
 
   // P06
-  def isPalindrome[A](input: List[A]): Boolean = input == reverse(input)
+  def isPalindrome[A](input: List[A]) = input == reverse(input)
+
+  // P07
+  def flatten(input: List[Any]): List[Any] = {
+    input match {
+      case Nil => Nil
+      case (head : List[Any]) :: tail => flatten(head) ::: flatten(tail)
+      case head :: tail => head :: flatten(tail)
+    }
+  }
 }
