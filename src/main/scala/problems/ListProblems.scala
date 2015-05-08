@@ -34,11 +34,9 @@ object ListProblems {
   def isPalindrome[A](input: List[A]) = input == reverse(input)
 
   // P07
-  def flatten(input: List[Any]): List[Any] = {
-    input match {
-      case Nil => Nil
-      case (head : List[Any]) :: tail => flatten(head) ::: flatten(tail)
-      case head :: tail => head :: flatten(tail)
-    }
+  def flatten(input: List[Any]): List[Any] = input match {
+    case Nil => Nil
+    case (head: List[Any]) :: tail => flatten(head) ::: flatten(tail)
+    case head :: tail => head :: flatten(tail)
   }
 }
