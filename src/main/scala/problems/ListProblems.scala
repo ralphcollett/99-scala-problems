@@ -23,4 +23,12 @@ object ListProblems {
     case _ if n < 0 => throw new NoSuchElementException
     case _ => nth(n - 1, input.tail)
   }
+
+  // P04
+  def length(input: List[Int]): Int = {
+    input match {
+      case Nil => 0
+      case _ :: tail => length(tail) + 1
+    }
+  }
 }

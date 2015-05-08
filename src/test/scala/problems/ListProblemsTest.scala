@@ -16,4 +16,8 @@ class ListProblemsTest extends FunSuite with Matchers {
   test("P03: Find the nth element of a list") {
     nth(2, List(1, 1, 2, 3, 5, 8)) should be(2)
   }
+
+  test("P04:  Find the number of elements of a list") {
+    ListProblems.length(List(1, 1, 2, 3, 5, 8)) should be(6)
+  }
 }
