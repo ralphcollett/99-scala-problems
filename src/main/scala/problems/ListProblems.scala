@@ -16,4 +16,11 @@ object ListProblems {
     case last :: Nil => throw new NoSuchElementException
     case _ :: tail => penultimate(tail)
   }
+
+  // P03
+  def nth(n: Int, input: List[Int]): Int = n match {
+    case 0 => input.head
+    case _ if n < 0 => throw new NoSuchElementException
+    case _ => nth(n - 1, input.tail)
+  }
 }
