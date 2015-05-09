@@ -49,7 +49,10 @@ object ListProblems {
   }
 
   // P09
-  def pack[A](input: List[A]): List[List[A]] = {
-    ???
+  def pack[A](input: List[A]): List[List[A]] = input match {
+      case Nil => Nil
+      case l =>
+        val (matching, theRest) = l.span(_ == l.head)
+        List(matching) ::: pack(theRest)
   }
 }
