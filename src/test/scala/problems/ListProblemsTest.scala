@@ -42,4 +42,8 @@ class ListProblemsTest extends FunSuite with Matchers {
   test("P09: Pack consecutive duplicates of list elements into sublists") {
     pack(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) should be(List(List('a, 'a, 'a, 'a), List('b), List('c, 'c), List('a, 'a), List('d), List('e, 'e, 'e, 'e)))
   }
+
+  test("P10: Run-length encoding of a list") {
+    encode(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) should be(List((4,'a), (1,'b), (2,'c), (2,'a), (1,'d), (4,'e)))
+  }
 }

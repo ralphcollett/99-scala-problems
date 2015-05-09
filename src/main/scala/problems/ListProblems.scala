@@ -55,4 +55,8 @@ object ListProblems {
         val (matching, theRest) = l.span(_ == l.head)
         List(matching) ::: pack(theRest)
   }
+
+  // P10
+  def encode[A](input: List[A]): List[(Int, A)] =
+    pack(input).map(packed => (packed.size, packed.head))
 }
