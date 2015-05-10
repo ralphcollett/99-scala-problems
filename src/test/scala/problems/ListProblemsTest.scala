@@ -58,4 +58,8 @@ class ListProblemsTest extends FunSuite with Matchers {
   test("P13: Run-length encoding of a list (direct solution)") {
     encodeDirect(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) should be(List((4, 'a), (1, 'b), (2, 'c), (2, 'a), (1, 'd), (4, 'e)))
   }
+
+  test("P14: Duplicate the elements of a list") {
+    duplicate(List('a, 'b, 'c, 'c, 'd)) should be(List('a, 'a, 'b, 'b, 'c, 'c, 'c, 'c, 'd, 'd))
+  }
 }
