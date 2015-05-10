@@ -59,4 +59,11 @@ object ListProblems {
   // P10
   def encode[A](input: List[A]): List[(Int, A)] =
     pack(input).map(packed => (packed.size, packed.head))
+
+  // P11
+  def encodeModified[A](input: List[A]): List[Any] =
+    pack(input).map(packed => if (packed.size == 1) packed.head else (packed.size, packed.head))
+
+  // P12
+  def decode[A](input: List[(Int, A)]): List[A] = ???
 }
