@@ -50,10 +50,10 @@ object ListProblems {
 
   // P09
   def pack[A](input: List[A]): List[List[A]] = input match {
-      case Nil => Nil
-      case l =>
-        val (matching, theRest) = l.span(_ == l.head)
-        List(matching) ::: pack(theRest)
+    case Nil => Nil
+    case l =>
+      val (matching, theRest) = l.span(_ == l.head)
+      List(matching) ::: pack(theRest)
   }
 
   // P10
@@ -65,5 +65,6 @@ object ListProblems {
     pack(input).map(packed => if (packed.size == 1) packed.head else (packed.size, packed.head))
 
   // P12
-  def decode[A](input: List[(Int, A)]): List[A] = ???
+  def decode[A](input: List[(Int, A)]): List[A] =
+    input.flatMap { case (n, a) => List.fill(n)(a) }
 }
