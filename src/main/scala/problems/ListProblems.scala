@@ -51,8 +51,8 @@ object ListProblems {
   // P09
   def pack[A](input: List[A]): List[List[A]] = input match {
     case Nil => Nil
-    case l =>
-      val (matching, theRest) = l.span(_ == l.head)
+    case l @ (head :: tail) =>
+      val (matching, theRest) = l.span(_ == head)
       List(matching) ::: pack(theRest)
   }
 
@@ -67,4 +67,12 @@ object ListProblems {
   // P12
   def decode[A](input: List[(Int, A)]): List[A] =
     input.flatMap { case (n, a) => List.fill(n)(a) }
+
+  // P13
+  def encodeDirect[A](input: List[A]): List[(Int, A)] = input match {
+      case Nil => Nil
+      case l @ (head :: tail) =>
+        val (matching, theRest) = l.span(_ == head)
+        List((matching.size, head)) ::: encodeDirect(theRest)
+    }
 }
