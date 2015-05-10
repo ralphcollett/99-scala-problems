@@ -78,4 +78,7 @@ object ListProblems {
 
   // P14
   def duplicate[A](input: List[A]): List[A] = input.flatMap(a => List(a, a))
+
+  // P15
+  def duplicateN[A](n: Int, input: List[A]): List[A] = input.flatMap(List.fill(n)(_))
 }

@@ -62,4 +62,8 @@ class ListProblemsTest extends FunSuite with Matchers {
   test("P14: Duplicate the elements of a list") {
     duplicate(List('a, 'b, 'c, 'c, 'd)) should be(List('a, 'a, 'b, 'b, 'c, 'c, 'c, 'c, 'd, 'd))
   }
+
+  test("P15: Duplicate the elements of a list a given number of times") {
+    duplicateN(3, List('a, 'b, 'c, 'c, 'd)) should be(List('a, 'a, 'a, 'b, 'b, 'b, 'c, 'c, 'c, 'c, 'c, 'c, 'd, 'd, 'd))
+  }
 }
