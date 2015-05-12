@@ -66,4 +66,12 @@ class ListProblemsTest extends FunSuite with Matchers {
   test("P15: Duplicate the elements of a list a given number of times") {
     duplicateN(3, List('a, 'b, 'c, 'c, 'd)) should be(List('a, 'a, 'a, 'b, 'b, 'b, 'c, 'c, 'c, 'c, 'c, 'c, 'd, 'd, 'd))
   }
+
+//  P16 (**) Drop every Nth element from a list.
+//  Example:
+//    scala> drop(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k))
+//  res0: List[Symbol] = List('a, 'b, 'd, 'e, 'g, 'h, 'j, 'k)
+  test("P16: Drop every Nth element from a list") {
+    drop(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) should be(List('a, 'b, 'd, 'e, 'g, 'h, 'j, 'k))
+  }
 }

@@ -81,4 +81,7 @@ object ListProblems {
 
   // P15
   def duplicateN[A](n: Int, input: List[A]): List[A] = input.flatMap(List.fill(n)(_))
+
+  // P16
+  def drop[A](n: Int, input: List[A]) = input.zipWithIndex.filter(i => (i._2 + 1) % n != 0).map(_._1)
 }
