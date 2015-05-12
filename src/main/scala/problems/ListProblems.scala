@@ -89,9 +89,11 @@ object ListProblems {
   def split[A](n: Int, input: List[A]): (List[A], List[A]) = input match {
     case Nil => (Nil, Nil)
     case list if n == 0 => (Nil, list)
-    case head :: tail => {
+    case head :: tail =>
       val (start, end) = split(n - 1, tail)
       (head :: start, end)
-    }
   }
+
+  // P18
+  def slice[A](i: Int, k: Int, input: List[A]): List[A] = ???
 }
