@@ -1,5 +1,7 @@
 package problems
 
+import scala.util.Random
+
 object ListProblems {
 
   // P01
@@ -123,4 +125,11 @@ object ListProblems {
 
   // P22
   def range(i: Int, k: Int): List[Int] = if (i > k) Nil else i :: range(i + 1, k)
+
+  // P23
+  def randomSelect[A](n: Int, input: List[A]): List[A] = {
+    val random = Random
+
+    List.fill(n)(input(random.nextInt(input.length)))
+  }
 }

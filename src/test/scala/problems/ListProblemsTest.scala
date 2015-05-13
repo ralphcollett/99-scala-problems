@@ -1,5 +1,6 @@
 package problems
 
+import org.scalatest.matchers.{MatchResult, Matcher}
 import org.scalatest.{FunSuite, Matchers}
 import problems.ListProblems._
 
@@ -85,7 +86,7 @@ class ListProblemsTest extends FunSuite with Matchers {
   }
 
   test("P20: Remove the Kth element from a list") {
-    removeAt(1, List('a, 'b, 'c, 'd)) should be((List('a, 'c, 'd),'b))
+    removeAt(1, List('a, 'b, 'c, 'd)) should be((List('a, 'c, 'd), 'b))
   }
 
   test("P21: Insert an element at a given position into a list") {
@@ -94,5 +95,21 @@ class ListProblemsTest extends FunSuite with Matchers {
 
   test("P22: Create a list containing all integers within a given range") {
     range(4, 9) should be(List(4, 5, 6, 7, 8, 9))
+  }
+
+  test("P23: Extract a given number of randomly selected elements from a list") {
+    def beASubListOf[A](parent: List[A]) = new Matcher[List[A]] {
+      override def apply(left: List[A]): MatchResult = MatchResult(
+        left.forall(parent.contains(_)),
+        s"$left was not a sublist of $parent (elements not contained: ${left.filterNot(parent.contains(_))})",
+        s"$left was a sublist of $parent"
+      )
+    }
+
+    val input = List('a, 'b, 'c, 'd, 'f, 'g, 'h)
+    val randomSelection = randomSelect(3, input)
+
+    randomSelection should have length 3
+    randomSelection should beASubListOf(input)
   }
 }
