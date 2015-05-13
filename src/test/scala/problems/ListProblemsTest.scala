@@ -97,19 +97,26 @@ class ListProblemsTest extends FunSuite with Matchers {
     range(4, 9) should be(List(4, 5, 6, 7, 8, 9))
   }
 
-  test("P23: Extract a given number of randomly selected elements from a list") {
-    def beASubListOf[A](parent: List[A]) = new Matcher[List[A]] {
-      override def apply(left: List[A]): MatchResult = MatchResult(
-        left.forall(parent.contains(_)),
-        s"$left was not a sublist of $parent (elements not contained: ${left.filterNot(parent.contains(_))})",
-        s"$left was a sublist of $parent"
-      )
-    }
+  def beASubListOf[A](parent: List[A]) = new Matcher[List[A]] {
+    override def apply(left: List[A]): MatchResult = MatchResult(
+      left.forall(parent.contains(_)),
+      s"$left was not a sublist of $parent (elements not contained: ${left.filterNot(parent.contains(_))})",
+      s"$left was a sublist of $parent"
+    )
+  }
 
+  test("P23: Extract a given number of randomly selected elements from a list") {
     val input = List('a, 'b, 'c, 'd, 'f, 'g, 'h)
     val randomSelection = randomSelect(3, input)
 
     randomSelection should have length 3
     randomSelection should beASubListOf(input)
+  }
+
+  test("P24: Lotto: Draw N different random numbers from the set 1..M") {
+    val lottoResults = lotto(6, 49)
+
+    lottoResults should have length 6
+    lottoResults should beASubListOf(range(1, 49))
   }
 }

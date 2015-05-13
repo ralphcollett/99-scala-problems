@@ -132,4 +132,7 @@ object ListProblems {
 
     List.fill(n)(input(random.nextInt(input.length)))
   }
+
+  // P24
+  def lotto(n: Int, m: Int) = randomSelect(n, range(1, m))
 }
