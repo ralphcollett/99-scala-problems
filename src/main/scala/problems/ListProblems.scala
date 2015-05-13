@@ -110,4 +110,10 @@ object ListProblems {
       val (start, end) = split(input.length + n, input)
       end ::: start
   }
+
+  // P20
+  def removeAt[A](n: Int, input: List[A]): (List[A], A) = {
+    val (start, endHead :: endTail) = split(n, input)
+    (start ::: endTail, endHead)
+  }
 }

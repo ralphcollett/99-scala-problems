@@ -83,4 +83,8 @@ class ListProblemsTest extends FunSuite with Matchers {
     rotate(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) should be(List('d, 'e, 'f, 'g, 'h, 'i, 'j, 'k, 'a, 'b, 'c))
     rotate(-2, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) should be(List('j, 'k, 'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i))
   }
+
+  test("P20: Remove the Kth element from a list") {
+    removeAt(1, List('a, 'b, 'c, 'd)) should be((List('a, 'c, 'd),'b))
+  }
 }
