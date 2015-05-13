@@ -95,8 +95,19 @@ object ListProblems {
   }
 
   // P18
-  def slice[A](i: Int, k: Int, input: List[A]): List[A] = (input, i) match {
-    case (_, 0) => input.take(k)
-    case (_, _) => slice(i - 1, k - 1, input.tail)
+  def slice[A](i: Int, k: Int, input: List[A]): List[A] = i match {
+    case 0 => input.take(k)
+    case _ => slice(i - 1, k - 1, input.tail)
+  }
+
+  // P19
+  def rotate[A](n: Int, input: List[A]) = n match {
+    case 0 => input
+    case _ if n > 1 =>
+      val (start, end) = split(n, input)
+      end ::: start
+    case _ =>
+      val (start, end) = split(input.length + n, input)
+      end ::: start
   }
 }
