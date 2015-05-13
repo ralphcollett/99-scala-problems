@@ -112,8 +112,12 @@ object ListProblems {
   }
 
   // P20
-  def removeAt[A](n: Int, input: List[A]): (List[A], A) = {
+  def removeAt[A](n: Int, input: List[A]) = {
     val (start, endHead :: endTail) = split(n, input)
     (start ::: endTail, endHead)
   }
+
+  // P21
+  def insertAt[A](a: A, n: Int, input: List[A]): List[A] =
+    if (n == 0) a :: input else input.head :: insertAt(a, n - 1, input.tail)
 }

@@ -87,4 +87,8 @@ class ListProblemsTest extends FunSuite with Matchers {
   test("P20: Remove the Kth element from a list") {
     removeAt(1, List('a, 'b, 'c, 'd)) should be((List('a, 'c, 'd),'b))
   }
+
+  test("P21: Insert an element at a given position into a list") {
+    insertAt('new, 1, List('a, 'b, 'c, 'd)) should be(List('a, 'new, 'b, 'c, 'd))
+  }
 }
