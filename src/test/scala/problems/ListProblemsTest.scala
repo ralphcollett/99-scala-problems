@@ -119,4 +119,10 @@ class ListProblemsTest extends FunSuite with Matchers {
     lottoResults should have length 6
     lottoResults should beASubListOf(range(1, 49))
   }
+
+  test("P25: Generate a random permutation of the elements of a list") {
+    val input = List('a, 'b, 'c, 'd, 'e, 'f)
+
+    randomPermute(input) should contain theSameElementsAs input
+  }
 }

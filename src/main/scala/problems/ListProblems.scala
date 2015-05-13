@@ -135,4 +135,16 @@ object ListProblems {
 
   // P24
   def lotto(n: Int, m: Int) = randomSelect(n, range(1, m))
+
+  // P25
+  def randomPermute[A](input: List[A]) = {
+    def loop(r: Random, source: List[A]): List[A] = source match {
+      case Nil => Nil
+      case _ =>
+        val (remainder, removed) = removeAt(r.nextInt(source.length), source)
+        removed :: loop(r, remainder)
+    }
+
+    loop(Random, input)
+  }
 }
