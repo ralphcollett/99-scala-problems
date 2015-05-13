@@ -95,5 +95,8 @@ object ListProblems {
   }
 
   // P18
-  def slice[A](i: Int, k: Int, input: List[A]): List[A] = ???
+  def slice[A](i: Int, k: Int, input: List[A]): List[A] = (input, i) match {
+    case (_, 0) => input.take(k)
+    case (_, _) => slice(i - 1, k - 1, input.tail)
+  }
 }

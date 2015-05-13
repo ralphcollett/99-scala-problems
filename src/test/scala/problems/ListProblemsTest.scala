@@ -75,7 +75,7 @@ class ListProblemsTest extends FunSuite with Matchers {
     split(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) should be((List('a, 'b, 'c), List('d, 'e, 'f, 'g, 'h, 'i, 'j, 'k)))
   }
 
-  ignore("P18: Extract a slice from a list") {
+  test("P18: Extract a slice from a list") {
     slice(3, 7, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) should be(List('d, 'e, 'f, 'g))
   }
 }
