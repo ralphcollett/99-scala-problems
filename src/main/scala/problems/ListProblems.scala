@@ -120,4 +120,7 @@ object ListProblems {
   // P21
   def insertAt[A](a: A, n: Int, input: List[A]): List[A] =
     if (n == 0) a :: input else input.head :: insertAt(a, n - 1, input.tail)
+
+  // P22
+  def range(i: Int, k: Int): List[Int] = if (i > k) Nil else i :: range(i + 1, k)
 }

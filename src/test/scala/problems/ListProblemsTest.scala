@@ -91,4 +91,8 @@ class ListProblemsTest extends FunSuite with Matchers {
   test("P21: Insert an element at a given position into a list") {
     insertAt('new, 1, List('a, 'b, 'c, 'd)) should be(List('a, 'new, 'b, 'c, 'd))
   }
+
+  test("P22: Create a list containing all integers within a given range") {
+    range(4, 9) should be(List(4, 5, 6, 7, 8, 9))
+  }
 }
