@@ -125,4 +125,10 @@ class ListProblemsTest extends FunSuite with Matchers {
 
     randomPermute(input) should contain theSameElementsAs input
   }
+
+  test("P26: Generate the combinations of K distinct objects chosen from the N elements of a list") {
+    List(List('a, 'b, 'c), List('a, 'b, 'd), List('a, 'b, 'e)) should beASubListOf(combinations(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g)))
+
+    combinations(3, List.range(0, 12)) should have length 220
+  }
 }

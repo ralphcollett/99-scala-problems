@@ -147,4 +147,12 @@ object ListProblems {
 
     loop(Random, input)
   }
+
+  // P26
+  def combinations[A](n: Int, input: List[A]): List[List[A]] = {
+    n match {
+      case 1 => input.map(List(_))
+      case _ => input.zipWithIndex.flatMap { case (a, i) => combinations(n - 1, input.drop(i + 1)).map(a :: _) }
+    }
+  }
 }
