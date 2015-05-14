@@ -157,11 +157,14 @@ object ListProblems {
   }
 
   // P27a
-  def group3[A](input: List[A]): List[List[List[A]]] = for {
+  def group3[A](input: List[A]) = for {
     twoGroup <- combinations(2, input)
     inputWithoutTwoGroup = input.filterNot(twoGroup.contains)
     threeGroup <- combinations(3, inputWithoutTwoGroup)
     inputWithoutTwoOrThreeGroup = inputWithoutTwoGroup.filterNot(threeGroup.contains)
     fourGroup <- combinations(4, inputWithoutTwoOrThreeGroup)
   } yield List(twoGroup, threeGroup, fourGroup)
+
+  // P27b
+  def group[A](groupSizes: List[Int], input: List[A]): List[List[A]] = ???
 }
