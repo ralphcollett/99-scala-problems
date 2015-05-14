@@ -131,4 +131,8 @@ class ListProblemsTest extends FunSuite with Matchers {
 
     combinations(3, List.range(0, 12)) should have length 220
   }
+
+  test("P27a: Group the elements of a set into disjoint subsets") {
+    group3(List("Aldo", "Beat", "Carla", "David", "Evi", "Flip", "Gary", "Hugo", "Ida")) should contain(List(List("Aldo", "Beat"), List("Carla", "David", "Evi"), List("Flip", "Gary", "Hugo", "Ida")))
+  }
 }

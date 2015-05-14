@@ -155,4 +155,13 @@ object ListProblems {
       case _ => input.zipWithIndex.flatMap { case (a, i) => combinations(n - 1, input.drop(i + 1)).map(a :: _) }
     }
   }
+
+  // P27a
+  def group3[A](input: List[A]): List[List[List[A]]] = for {
+    twoGroup <- combinations(2, input)
+    inputWithoutTwoGroup = input.filterNot(twoGroup.contains)
+    threeGroup <- combinations(3, inputWithoutTwoGroup)
+    inputWithoutTwoOrThreeGroup = inputWithoutTwoGroup.filterNot(threeGroup.contains)
+    fourGroup <- combinations(4, inputWithoutTwoOrThreeGroup)
+  } yield List(twoGroup, threeGroup, fourGroup)
 }
