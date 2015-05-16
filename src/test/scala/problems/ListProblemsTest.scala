@@ -136,12 +136,9 @@ class ListProblemsTest extends FunSuite with Matchers {
     group3(List("Aldo", "Beat", "Carla", "David", "Evi", "Flip", "Gary", "Hugo", "Ida")) should contain(List(List("Aldo", "Beat"), List("Carla", "David", "Evi"), List("Flip", "Gary", "Hugo", "Ida")))
   }
 
-  ignore("P27b: Generalize the above predicate in a way that we can specify a list of group sizes and the predicate will return a list of groups") {
+  test("P27b: Generalize the above predicate in a way that we can specify a list of group sizes and the predicate will return a list of groups") {
     val names = List("Aldo", "Beat", "Carla", "David", "Evi", "Flip", "Gary", "Hugo", "Ida")
 
-    val g = group(List(2, 3, 4), names)
-    println(g.mkString("\n"))
-
-    g should be(group3(names))
+    group(List(2, 3, 4), names) should be(group3(names))
   }
 }

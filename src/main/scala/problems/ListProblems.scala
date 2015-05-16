@@ -166,5 +166,15 @@ object ListProblems {
   } yield List(twoGroup, threeGroup, fourGroup)
 
   // P27b
-  def group[A](groupSizes: List[Int], input: List[A]): List[List[A]] = ???
+  def group[A](groupSizes: List[Int], input: List[A]): List[List[List[A]]] = {
+    groupSizes match {
+      case Nil => Nil
+      case groupSize :: Nil => List(combinations(groupSize, input))
+      case groupSize :: otherSizes => {
+        combinations(groupSize, input).flatMap {
+          combination => group(otherSizes, input.filterNot(combination.contains)).map(combination :: _)
+        }
+      }
+    }
+  }
 }
