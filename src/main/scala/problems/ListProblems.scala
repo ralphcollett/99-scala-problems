@@ -177,10 +177,16 @@ object ListProblems {
   }
 
   // P28a
-  def lsortFreq[A](input: List[List[A]]): List[List[A]] =
+  def lsort[A](input: List[List[A]]): List[List[A]] = lsort(input, (a: List[A], b: List[A]) => a.length <= b.length)
+
+  def lsort[A](input: List[List[A]], sortBy: ((List[A], List[A]) => Boolean)): List[List[A]] =
     input.foldRight(List[List[A]]())((elem, acc) => acc match {
       case Nil => List(elem)
-      case head :: _ if elem.length <= head.length => elem :: acc
-      case head :: tail => head :: lsortFreq(elem :: tail)
+      case head :: _ if sortBy(elem, head) => elem :: acc
+      case head :: tail => head :: lsort(elem :: tail, sortBy)
     })
+
+  // P28b
+  def lsortFreq[A](input: List[List[A]]): List[List[A]] =
+    lsort(input, (a:List[A], b:List[A]) => input.count(_.length == a.length) <= input.count(_.length == b.length))
 }
