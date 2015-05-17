@@ -166,15 +166,21 @@ object ListProblems {
   } yield List(twoGroup, threeGroup, fourGroup)
 
   // P27b
-  def group[A](groupSizes: List[Int], input: List[A]): List[List[List[A]]] = {
-    groupSizes match {
-      case Nil => Nil
-      case groupSize :: Nil => List(combinations(groupSize, input))
-      case groupSize :: otherSizes => {
-        combinations(groupSize, input).flatMap {
-          combination => group(otherSizes, input.filterNot(combination.contains)).map(combination :: _)
-        }
+  def group[A](groupSizes: List[Int], input: List[A]): List[List[List[A]]] = groupSizes match {
+    case Nil => Nil
+    case groupSize :: Nil => List(combinations(groupSize, input))
+    case groupSize :: otherSizes => {
+      combinations(groupSize, input).flatMap {
+        combination => group(otherSizes, input.filterNot(combination.contains)).map(combination :: _)
       }
     }
   }
+
+  // P28a
+  def lsortFreq[A](input: List[List[A]]): List[List[A]] =
+    input.foldRight(List[List[A]]())((elem, acc) => acc match {
+      case Nil => List(elem)
+      case head :: _ if elem.length <= head.length => elem :: acc
+      case head :: tail => head :: lsortFreq(elem :: tail)
+    })
 }

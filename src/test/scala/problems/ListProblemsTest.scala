@@ -141,4 +141,8 @@ class ListProblemsTest extends FunSuite with Matchers {
 
     group(List(2, 3, 4), names) should be(group3(names))
   }
+
+  test("P28a: Sorting a list of lists according to length of sublists (sort the elements of the list according to their length)") {
+    lsortFreq(List(List('a, 'b, 'c), List('d, 'e), List('f, 'g, 'h), List('d, 'e), List('i, 'j, 'k, 'l), List('m, 'n), List('o))) should be(List(List('o), List('d, 'e), List('d, 'e), List('m, 'n), List('a, 'b, 'c), List('f, 'g, 'h), List('i, 'j, 'k, 'l)))
+  }
 }
